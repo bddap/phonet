@@ -19,3 +19,10 @@ either by the classifier, or by speakers of popular languages.
 - https://phoible.org
 - http://www.ipachart.com
 - https://en.wikipedia.org/wiki/International_Phonetic_Alphabet
+
+## Audio Attribuition
+
+Each audio in the ipa/audio directory is the work of Peter Isotalo, User:Denelson83, UCLA Phonetics
+Lab Archive 2003, User:Halibutt, User:Pmx or User:Octane, and made available under a free and/or
+copyleft licence. For details on the licensing and attribution requirements of a particular clip,
+browse to it from the general phonetics page at the Wikimedia Commons.

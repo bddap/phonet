@@ -1,0 +1,828 @@
+[
+  {
+    "ipa_symbol": "i",
+    "name": "Close_front_unrounded_vowel",
+    "wav": "audio/Close_front_unrounded_vowel.wav",
+    "mp3": "audio/Close_front_unrounded_vowel.mp3",
+    "ogg": "audio/Close_front_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "y",
+    "name": "Close_front_rounded_vowel",
+    "wav": "audio/Close_front_rounded_vowel.wav",
+    "mp3": "audio/Close_front_rounded_vowel.mp3",
+    "ogg": "audio/Close_front_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɨ",
+    "name": "Close_central_unrounded_vowel",
+    "wav": "audio/Close_central_unrounded_vowel.wav",
+    "mp3": "audio/Close_central_unrounded_vowel.mp3",
+    "ogg": "audio/Close_central_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ʉ",
+    "name": "Close_central_rounded_vowel",
+    "wav": "audio/Close_central_rounded_vowel.wav",
+    "mp3": "audio/Close_central_rounded_vowel.mp3",
+    "ogg": "audio/Close_central_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɯ",
+    "name": "Close_back_unrounded_vowel",
+    "wav": "audio/Close_back_unrounded_vowel.wav",
+    "mp3": "audio/Close_back_unrounded_vowel.mp3",
+    "ogg": "audio/Close_back_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "u",
+    "name": "Close_back_rounded_vowel",
+    "wav": "audio/Close_back_rounded_vowel.wav",
+    "mp3": "audio/Close_back_rounded_vowel.mp3",
+    "ogg": "audio/Close_back_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɪ",
+    "name": "Near-close_near-front_unrounded_vowel",
+    "wav": "audio/Near-close_near-front_unrounded_vowel.wav",
+    "mp3": "audio/Near-close_near-front_unrounded_vowel.mp3",
+    "ogg": "audio/Near-close_near-front_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ʏ",
+    "name": "Near-close_near-front_rounded_vowel",
+    "wav": "audio/Near-close_near-front_rounded_vowel.wav",
+    "mp3": "audio/Near-close_near-front_rounded_vowel.mp3",
+    "ogg": "audio/Near-close_near-front_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ʊ",
+    "name": "Near-close_near-back_rounded_vowel",
+    "wav": "audio/Near-close_near-back_rounded_vowel.wav",
+    "mp3": "audio/Near-close_near-back_rounded_vowel.mp3",
+    "ogg": "audio/Near-close_near-back_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "e",
+    "name": "Close-mid_front_unrounded_vowel",
+    "wav": "audio/Close-mid_front_unrounded_vowel.wav",
+    "mp3": "audio/Close-mid_front_unrounded_vowel.mp3",
+    "ogg": "audio/Close-mid_front_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ø",
+    "name": "Close-mid_front_rounded_vowel",
+    "wav": "audio/Close-mid_front_rounded_vowel.wav",
+    "mp3": "audio/Close-mid_front_rounded_vowel.mp3",
+    "ogg": "audio/Close-mid_front_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɘ",
+    "name": "Close-mid_central_unrounded_vowel",
+    "wav": "audio/Close-mid_central_unrounded_vowel.wav",
+    "mp3": "audio/Close-mid_central_unrounded_vowel.mp3",
+    "ogg": "audio/Close-mid_central_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɵ",
+    "name": "Close-mid_central_rounded_vowel",
+    "wav": "audio/Close-mid_central_rounded_vowel.wav",
+    "mp3": "audio/Close-mid_central_rounded_vowel.mp3",
+    "ogg": "audio/Close-mid_central_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɤ",
+    "name": "Close-mid_back_unrounded_vowel",
+    "wav": "audio/Close-mid_back_unrounded_vowel.wav",
+    "mp3": "audio/Close-mid_back_unrounded_vowel.mp3",
+    "ogg": "audio/Close-mid_back_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "o",
+    "name": "Close-mid_back_rounded_vowel",
+    "wav": "audio/Close-mid_back_rounded_vowel.wav",
+    "mp3": "audio/Close-mid_back_rounded_vowel.mp3",
+    "ogg": "audio/Close-mid_back_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ə",
+    "name": "Mid-central_vowel",
+    "wav": "audio/Mid-central_vowel.wav",
+    "mp3": "audio/Mid-central_vowel.mp3",
+    "ogg": "audio/Mid-central_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɛ",
+    "name": "Open-mid_front_unrounded_vowel",
+    "wav": "audio/Open-mid_front_unrounded_vowel.wav",
+    "mp3": "audio/Open-mid_front_unrounded_vowel.mp3",
+    "ogg": "audio/Open-mid_front_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "œ",
+    "name": "Open-mid_front_rounded_vowel",
+    "wav": "audio/Open-mid_front_rounded_vowel.wav",
+    "mp3": "audio/Open-mid_front_rounded_vowel.mp3",
+    "ogg": "audio/Open-mid_front_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɜ",
+    "name": "Open-mid_central_unrounded_vowel",
+    "wav": "audio/Open-mid_central_unrounded_vowel.wav",
+    "mp3": "audio/Open-mid_central_unrounded_vowel.mp3",
+    "ogg": "audio/Open-mid_central_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɞ",
+    "name": "Open-mid_central_rounded_vowel",
+    "wav": "audio/Open-mid_central_rounded_vowel.wav",
+    "mp3": "audio/Open-mid_central_rounded_vowel.mp3",
+    "ogg": "audio/Open-mid_central_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ʌ",
+    "name": "Open-mid_back_unrounded_vowel",
+    "wav": "audio/Open-mid_back_unrounded_vowel.wav",
+    "mp3": "audio/Open-mid_back_unrounded_vowel.mp3",
+    "ogg": "audio/Open-mid_back_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɔ",
+    "name": "Open-mid_back_rounded_vowel",
+    "wav": "audio/Open-mid_back_rounded_vowel.wav",
+    "mp3": "audio/Open-mid_back_rounded_vowel.mp3",
+    "ogg": "audio/Open-mid_back_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "æ",
+    "name": "Near-open_front_unrounded_vowel",
+    "wav": "audio/Near-open_front_unrounded_vowel.wav",
+    "mp3": "audio/Near-open_front_unrounded_vowel.mp3",
+    "ogg": "audio/Near-open_front_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɐ",
+    "name": "Near-open_central_unrounded_vowel",
+    "wav": "audio/Near-open_central_unrounded_vowel.wav",
+    "mp3": "audio/Near-open_central_unrounded_vowel.mp3",
+    "ogg": "audio/Near-open_central_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "a",
+    "name": "Open_front_unrounded_vowel",
+    "wav": "audio/Open_front_unrounded_vowel.wav",
+    "mp3": "audio/Open_front_unrounded_vowel.mp3",
+    "ogg": "audio/Open_front_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɶ",
+    "name": "Open_front_rounded_vowel",
+    "wav": "audio/Open_front_rounded_vowel.wav",
+    "mp3": "audio/Open_front_rounded_vowel.mp3",
+    "ogg": "audio/Open_front_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɑ",
+    "name": "Open_back_unrounded_vowel",
+    "wav": "audio/Open_back_unrounded_vowel.wav",
+    "mp3": "audio/Open_back_unrounded_vowel.mp3",
+    "ogg": "audio/Open_back_unrounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "ɒ",
+    "name": "Open_back_rounded_vowel",
+    "wav": "audio/Open_back_rounded_vowel.wav",
+    "mp3": "audio/Open_back_rounded_vowel.mp3",
+    "ogg": "audio/Open_back_rounded_vowel.ogg"
+  },
+  {
+    "ipa_symbol": "p",
+    "name": "Voiceless_bilabial_plosive",
+    "wav": "audio/Voiceless_bilabial_plosive.wav",
+    "mp3": "audio/Voiceless_bilabial_plosive.mp3",
+    "ogg": "audio/Voiceless_bilabial_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "b",
+    "name": "Voiced_bilabial_plosive",
+    "wav": "audio/Voiced_bilabial_plosive.wav",
+    "mp3": "audio/Voiced_bilabial_plosive.mp3",
+    "ogg": "audio/Voiced_bilabial_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "t",
+    "name": "Voiceless_alveolar_plosive",
+    "wav": "audio/Voiceless_alveolar_plosive.wav",
+    "mp3": "audio/Voiceless_alveolar_plosive.mp3",
+    "ogg": "audio/Voiceless_alveolar_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "d",
+    "name": "Voiced_alveolar_plosive",
+    "wav": "audio/Voiced_alveolar_plosive.wav",
+    "mp3": "audio/Voiced_alveolar_plosive.mp3",
+    "ogg": "audio/Voiced_alveolar_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "ʈ",
+    "name": "Voiceless_retroflex_plosive",
+    "wav": "audio/Voiceless_retroflex_plosive.wav",
+    "mp3": "audio/Voiceless_retroflex_plosive.mp3",
+    "ogg": "audio/Voiceless_retroflex_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "ɖ",
+    "name": "Voiced_retroflex_plosive",
+    "wav": "audio/Voiced_retroflex_plosive.wav",
+    "mp3": "audio/Voiced_retroflex_plosive.mp3",
+    "ogg": "audio/Voiced_retroflex_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "c",
+    "name": "Voiceless_palatal_plosive",
+    "wav": "audio/Voiceless_palatal_plosive.wav",
+    "mp3": "audio/Voiceless_palatal_plosive.mp3",
+    "ogg": "audio/Voiceless_palatal_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "ɟ",
+    "name": "Voiced_palatal_plosive",
+    "wav": "audio/Voiced_palatal_plosive.wav",
+    "mp3": "audio/Voiced_palatal_plosive.mp3",
+    "ogg": "audio/Voiced_palatal_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "k",
+    "name": "Voiceless_velar_plosive",
+    "wav": "audio/Voiceless_velar_plosive.wav",
+    "mp3": "audio/Voiceless_velar_plosive.mp3",
+    "ogg": "audio/Voiceless_velar_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "g",
+    "name": "Voiced_velar_plosive",
+    "wav": "audio/Voiced_velar_plosive.wav",
+    "mp3": "audio/Voiced_velar_plosive.mp3",
+    "ogg": "audio/Voiced_velar_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "q",
+    "name": "Voiceless_uvular_plosive",
+    "wav": "audio/Voiceless_uvular_plosive.wav",
+    "mp3": "audio/Voiceless_uvular_plosive.mp3",
+    "ogg": "audio/Voiceless_uvular_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "ɢ",
+    "name": "Voiced_uvular_plosive",
+    "wav": "audio/Voiced_uvular_plosive.wav",
+    "mp3": "audio/Voiced_uvular_plosive.mp3",
+    "ogg": "audio/Voiced_uvular_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "ʔ",
+    "name": "Glottal_stop",
+    "wav": "audio/Glottal_stop.wav",
+    "mp3": "audio/Glottal_stop.mp3",
+    "ogg": "audio/Glottal_stop.ogg"
+  },
+  {
+    "ipa_symbol": "m",
+    "name": "Bilabial_nasal",
+    "wav": "audio/Bilabial_nasal.wav",
+    "mp3": "audio/Bilabial_nasal.mp3",
+    "ogg": "audio/Bilabial_nasal.ogg"
+  },
+  {
+    "ipa_symbol": "ɱ",
+    "name": "Labiodental_nasal",
+    "wav": "audio/Labiodental_nasal.wav",
+    "mp3": "audio/Labiodental_nasal.mp3",
+    "ogg": "audio/Labiodental_nasal.ogg"
+  },
+  {
+    "ipa_symbol": "n",
+    "name": "Alveolar_nasal",
+    "wav": "audio/Alveolar_nasal.wav",
+    "mp3": "audio/Alveolar_nasal.mp3",
+    "ogg": "audio/Alveolar_nasal.ogg"
+  },
+  {
+    "ipa_symbol": "ɳ",
+    "name": "Retroflex_nasal",
+    "wav": "audio/Retroflex_nasal.wav",
+    "mp3": "audio/Retroflex_nasal.mp3",
+    "ogg": "audio/Retroflex_nasal.ogg"
+  },
+  {
+    "ipa_symbol": "ɲ",
+    "name": "Palatal_nasal",
+    "wav": "audio/Palatal_nasal.wav",
+    "mp3": "audio/Palatal_nasal.mp3",
+    "ogg": "audio/Palatal_nasal.ogg"
+  },
+  {
+    "ipa_symbol": "ŋ",
+    "name": "Velar_nasal",
+    "wav": "audio/Velar_nasal.wav",
+    "mp3": "audio/Velar_nasal.mp3",
+    "ogg": "audio/Velar_nasal.ogg"
+  },
+  {
+    "ipa_symbol": "ɴ",
+    "name": "Uvular_nasal",
+    "wav": "audio/Uvular_nasal.wav",
+    "mp3": "audio/Uvular_nasal.mp3",
+    "ogg": "audio/Uvular_nasal.ogg"
+  },
+  {
+    "ipa_symbol": "ʙ",
+    "name": "Bilabial_trill",
+    "wav": "audio/Bilabial_trill.wav",
+    "mp3": "audio/Bilabial_trill.mp3",
+    "ogg": "audio/Bilabial_trill.ogg"
+  },
+  {
+    "ipa_symbol": "r",
+    "name": "Alveolar_trill",
+    "wav": "audio/Alveolar_trill.wav",
+    "mp3": "audio/Alveolar_trill.mp3",
+    "ogg": "audio/Alveolar_trill.ogg"
+  },
+  {
+    "ipa_symbol": "ʀ",
+    "name": "Uvular_trill",
+    "wav": "audio/Uvular_trill.wav",
+    "mp3": "audio/Uvular_trill.mp3",
+    "ogg": "audio/Uvular_trill.ogg"
+  },
+  {
+    "ipa_symbol": "ɾ",
+    "name": "Alveolar_tap",
+    "wav": "audio/Alveolar_tap.wav",
+    "mp3": "audio/Alveolar_tap.mp3",
+    "ogg": "audio/Alveolar_tap.ogg"
+  },
+  {
+    "ipa_symbol": "ɽ",
+    "name": "Retroflex_flap",
+    "wav": "audio/Retroflex_flap.wav",
+    "mp3": "audio/Retroflex_flap.mp3",
+    "ogg": "audio/Retroflex_flap.ogg"
+  },
+  {
+    "ipa_symbol": "ɸ",
+    "name": "Voiceless_bilabial_fricative",
+    "wav": "audio/Voiceless_bilabial_fricative.wav",
+    "mp3": "audio/Voiceless_bilabial_fricative.mp3",
+    "ogg": "audio/Voiceless_bilabial_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "β",
+    "name": "Voiced_bilabial_fricative",
+    "wav": "audio/Voiced_bilabial_fricative.wav",
+    "mp3": "audio/Voiced_bilabial_fricative.mp3",
+    "ogg": "audio/Voiced_bilabial_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "f",
+    "name": "Voiceless_labiodental_fricative",
+    "wav": "audio/Voiceless_labiodental_fricative.wav",
+    "mp3": "audio/Voiceless_labiodental_fricative.mp3",
+    "ogg": "audio/Voiceless_labiodental_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "v",
+    "name": "Voiced_labiodental_fricative",
+    "wav": "audio/Voiced_labiodental_fricative.wav",
+    "mp3": "audio/Voiced_labiodental_fricative.mp3",
+    "ogg": "audio/Voiced_labiodental_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "θ",
+    "name": "Voiceless_dental_fricative",
+    "wav": "audio/Voiceless_dental_fricative.wav",
+    "mp3": "audio/Voiceless_dental_fricative.mp3",
+    "ogg": "audio/Voiceless_dental_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ð",
+    "name": "Voiced_dental_fricative",
+    "wav": "audio/Voiced_dental_fricative.wav",
+    "mp3": "audio/Voiced_dental_fricative.mp3",
+    "ogg": "audio/Voiced_dental_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "s",
+    "name": "Voiceless_alveolar_fricative",
+    "wav": "audio/Voiceless_alveolar_fricative.wav",
+    "mp3": "audio/Voiceless_alveolar_fricative.mp3",
+    "ogg": "audio/Voiceless_alveolar_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "z",
+    "name": "Voiced_alveolar_fricative",
+    "wav": "audio/Voiced_alveolar_fricative.wav",
+    "mp3": "audio/Voiced_alveolar_fricative.mp3",
+    "ogg": "audio/Voiced_alveolar_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʃ",
+    "name": "Voiceless_postalveolar_fricative",
+    "wav": "audio/Voiceless_postalveolar_fricative.wav",
+    "mp3": "audio/Voiceless_postalveolar_fricative.mp3",
+    "ogg": "audio/Voiceless_postalveolar_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʒ",
+    "name": "Voiced_postalveolar_fricative",
+    "wav": "audio/Voiced_postalveolar_fricative.wav",
+    "mp3": "audio/Voiced_postalveolar_fricative.mp3",
+    "ogg": "audio/Voiced_postalveolar_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʂ",
+    "name": "Voiceless_retroflex_fricative",
+    "wav": "audio/Voiceless_retroflex_fricative.wav",
+    "mp3": "audio/Voiceless_retroflex_fricative.mp3",
+    "ogg": "audio/Voiceless_retroflex_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʐ",
+    "name": "Voiced_retroflex_fricative",
+    "wav": "audio/Voiced_retroflex_fricative.wav",
+    "mp3": "audio/Voiced_retroflex_fricative.mp3",
+    "ogg": "audio/Voiced_retroflex_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ç",
+    "name": "Voiceless_palatal_fricative",
+    "wav": "audio/Voiceless_palatal_fricative.wav",
+    "mp3": "audio/Voiceless_palatal_fricative.mp3",
+    "ogg": "audio/Voiceless_palatal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʝ",
+    "name": "Voiced_palatal_fricative",
+    "wav": "audio/Voiced_palatal_fricative.wav",
+    "mp3": "audio/Voiced_palatal_fricative.mp3",
+    "ogg": "audio/Voiced_palatal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "x",
+    "name": "Voiceless_velar_fricative",
+    "wav": "audio/Voiceless_velar_fricative.wav",
+    "mp3": "audio/Voiceless_velar_fricative.mp3",
+    "ogg": "audio/Voiceless_velar_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ɣ",
+    "name": "Voiced_velar_fricative",
+    "wav": "audio/Voiced_velar_fricative.wav",
+    "mp3": "audio/Voiced_velar_fricative.mp3",
+    "ogg": "audio/Voiced_velar_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "χ",
+    "name": "Voiceless_uvular_fricative",
+    "wav": "audio/Voiceless_uvular_fricative.wav",
+    "mp3": "audio/Voiceless_uvular_fricative.mp3",
+    "ogg": "audio/Voiceless_uvular_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʁ",
+    "name": "Voiced_uvular_fricative",
+    "wav": "audio/Voiced_uvular_fricative.wav",
+    "mp3": "audio/Voiced_uvular_fricative.mp3",
+    "ogg": "audio/Voiced_uvular_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ħ",
+    "name": "Voiceless_pharyngeal_fricative",
+    "wav": "audio/Voiceless_pharyngeal_fricative.wav",
+    "mp3": "audio/Voiceless_pharyngeal_fricative.mp3",
+    "ogg": "audio/Voiceless_pharyngeal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʕ",
+    "name": "Voiced_pharyngeal_fricative",
+    "wav": "audio/Voiced_pharyngeal_fricative.wav",
+    "mp3": "audio/Voiced_pharyngeal_fricative.mp3",
+    "ogg": "audio/Voiced_pharyngeal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "h",
+    "name": "Voiceless_glottal_fricative",
+    "wav": "audio/Voiceless_glottal_fricative.wav",
+    "mp3": "audio/Voiceless_glottal_fricative.mp3",
+    "ogg": "audio/Voiceless_glottal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ɦ",
+    "name": "Voiced_glottal_fricative",
+    "wav": "audio/Voiced_glottal_fricative.wav",
+    "mp3": "audio/Voiced_glottal_fricative.mp3",
+    "ogg": "audio/Voiced_glottal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ɬ",
+    "name": "Voiceless_alveolar_lateral_fricative",
+    "wav": "audio/Voiceless_alveolar_lateral_fricative.wav",
+    "mp3": "audio/Voiceless_alveolar_lateral_fricative.mp3",
+    "ogg": "audio/Voiceless_alveolar_lateral_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ɮ",
+    "name": "Voiced_alveolar_lateral_fricative",
+    "wav": "audio/Voiced_alveolar_lateral_fricative.wav",
+    "mp3": "audio/Voiced_alveolar_lateral_fricative.mp3",
+    "ogg": "audio/Voiced_alveolar_lateral_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʋ",
+    "name": "Labiodental_approximant",
+    "wav": "audio/Labiodental_approximant.wav",
+    "mp3": "audio/Labiodental_approximant.mp3",
+    "ogg": "audio/Labiodental_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "ɹ",
+    "name": "Alveolar_approximant",
+    "wav": "audio/Alveolar_approximant.wav",
+    "mp3": "audio/Alveolar_approximant.mp3",
+    "ogg": "audio/Alveolar_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "ɻ",
+    "name": "Retroflex_approximant",
+    "wav": "audio/Retroflex_approximant.wav",
+    "mp3": "audio/Retroflex_approximant.mp3",
+    "ogg": "audio/Retroflex_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "j",
+    "name": "Palatal_approximant",
+    "wav": "audio/Palatal_approximant.wav",
+    "mp3": "audio/Palatal_approximant.mp3",
+    "ogg": "audio/Palatal_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "ɰ",
+    "name": "Voiced_velar_approximant",
+    "wav": "audio/Voiced_velar_approximant.wav",
+    "mp3": "audio/Voiced_velar_approximant.mp3",
+    "ogg": "audio/Voiced_velar_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "l",
+    "name": "Alveolar_lateral_approximant",
+    "wav": "audio/Alveolar_lateral_approximant.wav",
+    "mp3": "audio/Alveolar_lateral_approximant.mp3",
+    "ogg": "audio/Alveolar_lateral_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "ɭ",
+    "name": "Retroflex_lateral_approximant",
+    "wav": "audio/Retroflex_lateral_approximant.wav",
+    "mp3": "audio/Retroflex_lateral_approximant.mp3",
+    "ogg": "audio/Retroflex_lateral_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "ʎ",
+    "name": "Palatal_lateral_approximant",
+    "wav": "audio/Palatal_lateral_approximant.wav",
+    "mp3": "audio/Palatal_lateral_approximant.mp3",
+    "ogg": "audio/Palatal_lateral_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "ʟ",
+    "name": "Velar_lateral_approximant",
+    "wav": "audio/Velar_lateral_approximant.wav",
+    "mp3": "audio/Velar_lateral_approximant.mp3",
+    "ogg": "audio/Velar_lateral_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "ʘ",
+    "name": "Bilabial_click",
+    "wav": "audio/Bilabial_click.wav",
+    "mp3": "audio/Bilabial_click.mp3",
+    "ogg": "audio/Bilabial_click.ogg"
+  },
+  {
+    "ipa_symbol": "ɓ",
+    "name": "Voiced_bilabial_implosive",
+    "wav": "audio/Voiced_bilabial_implosive.wav",
+    "mp3": "audio/Voiced_bilabial_implosive.mp3",
+    "ogg": "audio/Voiced_bilabial_implosive.ogg"
+  },
+  {
+    "ipa_symbol": "pʼ",
+    "name": "Bilabial_ejective_plosive",
+    "wav": "audio/Bilabial_ejective_plosive.wav",
+    "mp3": "audio/Bilabial_ejective_plosive.mp3",
+    "ogg": "audio/Bilabial_ejective_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "ǀ",
+    "name": "Dental_click",
+    "wav": "audio/Dental_click.wav",
+    "mp3": "audio/Dental_click.mp3",
+    "ogg": "audio/Dental_click.ogg"
+  },
+  {
+    "ipa_symbol": "ɗ",
+    "name": "Voiced_alveolar_implosive",
+    "wav": "audio/Voiced_alveolar_implosive.wav",
+    "mp3": "audio/Voiced_alveolar_implosive.mp3",
+    "ogg": "audio/Voiced_alveolar_implosive.ogg"
+  },
+  {
+    "ipa_symbol": "tʼ",
+    "name": "Alveolar_ejective_plosive",
+    "wav": "audio/Alveolar_ejective_plosive.wav",
+    "mp3": "audio/Alveolar_ejective_plosive.mp3",
+    "ogg": "audio/Alveolar_ejective_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "ǃ",
+    "name": "Postalveolar_click",
+    "wav": "audio/Postalveolar_click.wav",
+    "mp3": "audio/Postalveolar_click.mp3",
+    "ogg": "audio/Postalveolar_click.ogg"
+  },
+  {
+    "ipa_symbol": "ʄ",
+    "name": "Voiced_palatal_implosive",
+    "wav": "audio/Voiced_palatal_implosive.wav",
+    "mp3": "audio/Voiced_palatal_implosive.mp3",
+    "ogg": "audio/Voiced_palatal_implosive.ogg"
+  },
+  {
+    "ipa_symbol": "kʼ",
+    "name": "Velar_ejective_plosive",
+    "wav": "audio/Velar_ejective_plosive.wav",
+    "mp3": "audio/Velar_ejective_plosive.mp3",
+    "ogg": "audio/Velar_ejective_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "ǂ",
+    "name": "Palatoalveolar_click",
+    "wav": "audio/Palatoalveolar_click.wav",
+    "mp3": "audio/Palatoalveolar_click.mp3",
+    "ogg": "audio/Palatoalveolar_click.ogg"
+  },
+  {
+    "ipa_symbol": "ɠ",
+    "name": "Voiced_velar_implosive",
+    "wav": "audio/Voiced_velar_implosive.wav",
+    "mp3": "audio/Voiced_velar_implosive.mp3",
+    "ogg": "audio/Voiced_velar_implosive.ogg"
+  },
+  {
+    "ipa_symbol": "sʼ",
+    "name": "Alveolar_ejective_fricative",
+    "wav": "audio/Alveolar_ejective_fricative.wav",
+    "mp3": "audio/Alveolar_ejective_fricative.mp3",
+    "ogg": "audio/Alveolar_ejective_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ǁ",
+    "name": "Alveolar_lateral_click",
+    "wav": "audio/Alveolar_lateral_click.wav",
+    "mp3": "audio/Alveolar_lateral_click.mp3",
+    "ogg": "audio/Alveolar_lateral_click.ogg"
+  },
+  {
+    "ipa_symbol": "ʛ",
+    "name": "Voiced_uvular_implosive",
+    "wav": "audio/Voiced_uvular_implosive.wav",
+    "mp3": "audio/Voiced_uvular_implosive.mp3",
+    "ogg": "audio/Voiced_uvular_implosive.ogg"
+  },
+  {
+    "ipa_symbol": "ʍ",
+    "name": "Voiceless_labio-velar_fricative",
+    "wav": "audio/Voiceless_labio-velar_fricative.wav",
+    "mp3": "audio/Voiceless_labio-velar_fricative.mp3",
+    "ogg": "audio/Voiceless_labio-velar_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "w",
+    "name": "Voiced_labio-velar_approximant",
+    "wav": "audio/Voiced_labio-velar_approximant.wav",
+    "mp3": "audio/Voiced_labio-velar_approximant.mp3",
+    "ogg": "audio/Voiced_labio-velar_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "ɥ",
+    "name": "Labial-palatal_approximant",
+    "wav": "audio/Labial-palatal_approximant.wav",
+    "mp3": "audio/Labial-palatal_approximant.mp3",
+    "ogg": "audio/Labial-palatal_approximant.ogg"
+  },
+  {
+    "ipa_symbol": "ʜ",
+    "name": "Voiceless_epiglottal_fricative",
+    "wav": "audio/Voiceless_epiglottal_fricative.wav",
+    "mp3": "audio/Voiceless_epiglottal_fricative.mp3",
+    "ogg": "audio/Voiceless_epiglottal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʢ",
+    "name": "Voiced_epiglottal_fricative",
+    "wav": "audio/Voiced_epiglottal_fricative.wav",
+    "mp3": "audio/Voiced_epiglottal_fricative.mp3",
+    "ogg": "audio/Voiced_epiglottal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʡ",
+    "name": "Voiceless_epiglottal_plosive",
+    "wav": "audio/Voiceless_epiglottal_plosive.wav",
+    "mp3": "audio/Voiceless_epiglottal_plosive.mp3",
+    "ogg": "audio/Voiceless_epiglottal_plosive.ogg"
+  },
+  {
+    "ipa_symbol": "ɕ",
+    "name": "Voiceless_alveolo-palatal_fricative",
+    "wav": "audio/Voiceless_alveolo-palatal_fricative.wav",
+    "mp3": "audio/Voiceless_alveolo-palatal_fricative.mp3",
+    "ogg": "audio/Voiceless_alveolo-palatal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ʑ",
+    "name": "Voiced_alveolo-palatal_fricative",
+    "wav": "audio/Voiced_alveolo-palatal_fricative.wav",
+    "mp3": "audio/Voiced_alveolo-palatal_fricative.mp3",
+    "ogg": "audio/Voiced_alveolo-palatal_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "ɺ",
+    "name": "Alveolar_lateral_flap",
+    "wav": "audio/Alveolar_lateral_flap.wav",
+    "mp3": "audio/Alveolar_lateral_flap.mp3",
+    "ogg": "audio/Alveolar_lateral_flap.ogg"
+  },
+  {
+    "ipa_symbol": "ɧ",
+    "name": "Voiceless_dorso-palatal_velar_fricative",
+    "wav": "audio/Voiceless_dorso-palatal_velar_fricative.wav",
+    "mp3": "audio/Voiceless_dorso-palatal_velar_fricative.mp3",
+    "ogg": "audio/Voiceless_dorso-palatal_velar_fricative.ogg"
+  },
+  {
+    "ipa_symbol": "t͡s",
+    "name": "Voiceless_alveolar_affricate",
+    "wav": "audio/Voiceless_alveolar_affricate.wav",
+    "mp3": "audio/Voiceless_alveolar_affricate.mp3",
+    "ogg": "audio/Voiceless_alveolar_affricate.ogg"
+  },
+  {
+    "ipa_symbol": "t͡ʃ",
+    "name": "Voiceless_palato-alveolar_affricate",
+    "wav": "audio/Voiceless_palato-alveolar_affricate.wav",
+    "mp3": "audio/Voiceless_palato-alveolar_affricate.mp3",
+    "ogg": "audio/Voiceless_palato-alveolar_affricate.ogg"
+  },
+  {
+    "ipa_symbol": "t͡ɕ",
+    "name": "Voiceless_alveolo-palatal_affricate",
+    "wav": "audio/Voiceless_alveolo-palatal_affricate.wav",
+    "mp3": "audio/Voiceless_alveolo-palatal_affricate.mp3",
+    "ogg": "audio/Voiceless_alveolo-palatal_affricate.ogg"
+  },
+  {
+    "ipa_symbol": "ʈ͡ʂ",
+    "name": "Voiceless_retroflex_affricate",
+    "wav": "audio/Voiceless_retroflex_affricate.wav",
+    "mp3": "audio/Voiceless_retroflex_affricate.mp3",
+    "ogg": "audio/Voiceless_retroflex_affricate.ogg"
+  },
+  {
+    "ipa_symbol": "d͡z",
+    "name": "Voiced_alveolar_affricate",
+    "wav": "audio/Voiced_alveolar_affricate.wav",
+    "mp3": "audio/Voiced_alveolar_affricate.mp3",
+    "ogg": "audio/Voiced_alveolar_affricate.ogg"
+  },
+  {
+    "ipa_symbol": "d͡ʒ",
+    "name": "Voiced_postalveolar_affricate",
+    "wav": "audio/Voiced_postalveolar_affricate.wav",
+    "mp3": "audio/Voiced_postalveolar_affricate.mp3",
+    "ogg": "audio/Voiced_postalveolar_affricate.ogg"
+  },
+  {
+    "ipa_symbol": "d͡ʑ",
+    "name": "Voiced_alveolo-palatal_affricate",
+    "wav": "audio/Voiced_alveolo-palatal_affricate.wav",
+    "mp3": "audio/Voiced_alveolo-palatal_affricate.mp3",
+    "ogg": "audio/Voiced_alveolo-palatal_affricate.ogg"
+  },
+  {
+    "ipa_symbol": "ɖ͡ʐ",
+    "name": "Voiced_retroflex_affricate",
+    "wav": "audio/Voiced_retroflex_affricate.wav",
+    "mp3": "audio/Voiced_retroflex_affricate.mp3",
+    "ogg": "audio/Voiced_retroflex_affricate.ogg"
+  }
+]
