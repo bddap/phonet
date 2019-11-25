@@ -1,3 +1,5 @@
+use super::fft::fft;
+use audrey::read::BufFileReader;
 use serde::{Deserialize, Serialize};
 use std::fs::File;
 use std::path::{Path, PathBuf};
@@ -37,7 +39,7 @@ fn get_phone_by_name<'a>(
         .ok_or("Couldn't find phone".into())
 }
 
-/// metadata baout a specific sound
+/// metadata about a specific sound
 #[derive(Serialize, Deserialize)]
 struct Phone {
     ipa_symbol: String,
@@ -48,7 +50,19 @@ struct Phone {
 }
 
 fn load_ffts(phone: &Phone) -> Result<Vec<Fft>, Box<dyn std::error::Error>> {
-    Ok(vec![])
+    // do we resample before fft or after? Do we resample at all?
+    let audio_reader = BufFileReader::open(&phone.ogg)?;
+    let raw = load_raw_samples(audio_reader)?;
+    let ret: Vec<Fft> = raw
+        .windows(FFT_BINS)
+        .step_by(FFT_BINS / 2)
+        .map(|raw| {
+            let mut ret = Fft([0.0; FFT_BINS]);
+            fft(raw, &mut ret.0);
+            ret
+        })
+        .collect();
+    Ok(ret)
 }
 
 fn load_phones(ipa_path: &Path) -> Result<Vec<Phone>, Box<dyn std::error::Error>> {
@@ -60,4 +74,20 @@ fn load_phones(ipa_path: &Path) -> Result<Vec<Phone>, Box<dyn std::error::Error>
         phone.ogg = ipa_path.join(&phone.ogg);
     }
     Ok(phones)
+}
+
+fn load_raw_samples(mut reader: BufFileReader) -> Result<Vec<f32>, Box<dyn std::error::Error>> {
+    // multi-channel streams are interleaved, let's take the average in the multi-channel case
+    let channels = reader.description().channel_count() as usize;
+    assert_ne!(channels, 0);
+    let multi_channel: Vec<f32> = reader.samples().collect::<Result<_, _>>()?;
+    let single_channel: Vec<f32> = multi_channel.chunks(channels).map(ave).collect();
+
+    // for now, we don't resample based on sample_rate
+    Ok(single_channel)
+}
+
+fn ave(ns: &[f32]) -> f32 {
+    let sum: f32 = Iterator::sum(ns.iter());
+    sum / (ns.len() as f32)
 }
