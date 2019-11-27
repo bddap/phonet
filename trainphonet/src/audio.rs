@@ -1,12 +1,11 @@
+use super::common::FFT_BINS;
 use super::fft::fft;
 use audrey::read::BufFileReader;
 use serde::{Deserialize, Serialize};
 use std::fs::File;
 use std::path::{Path, PathBuf};
 
-const FFT_BINS: usize = 256;
-
-pub struct Fft([f32; FFT_BINS]);
+pub struct Fft(pub [f32; FFT_BINS]);
 
 pub struct TrainingData {
     pub close_front_unrounded_vowel: Vec<Fft>, // "i"
