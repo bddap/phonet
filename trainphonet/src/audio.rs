@@ -1,30 +1,87 @@
-use super::common::FFT_BINS;
+use super::common::{FFT_BINS, INPUT_HEIGHT, OUTPUT_HEIGHT};
 use super::fft::fft;
 use audrey::read::BufFileReader;
 use serde::{Deserialize, Serialize};
+use std::error::Error;
 use std::fs::File;
 use std::path::{Path, PathBuf};
+use tensorflow::Tensor;
 
+/// Input
+#[derive(Clone)]
 pub struct Fft(pub [f32; FFT_BINS]);
+
+impl Fft {
+    pub fn to_input_tensor(&self) -> Tensor<f32> {
+        let mut input_tensor = Tensor::<f32>::new(&[1, INPUT_HEIGHT]);
+        input_tensor.copy_from_slice(&self.0);
+        input_tensor
+    }
+}
+
+/// Output
+#[derive(Clone)]
+pub struct Classification {
+    pub close_front_unrounded_vowel: f32,
+    pub open_back_rounded_vowel: f32,
+}
+
+impl Classification {
+    pub fn to_output_tensor(&self) -> Tensor<f32> {
+		let mut label_tensor = Tensor::<f32>::new(&[1, OUTPUT_HEIGHT]);
+		label_tensor[0] = self.close_front_unrounded_vowel;
+		label_tensor[1] = self.open_back_rounded_vowel;
+		label_tensor
+    }
+
+    pub fn from_output_tensor(tens: &Tensor<f32>) -> Result<Self, Box<dyn Error>> {
+        unimplemented!()
+    }
+}
 
 pub struct TrainingData {
     pub close_front_unrounded_vowel: Vec<Fft>, // "i"
     pub open_back_rounded_vowel: Vec<Fft>,     // "ɒ"
 }
 
-/// ipa_path is a path to the directory containing sounds.json and the audio directory
-pub fn load_training_data(
-    ipa_path: impl AsRef<Path>,
-) -> Result<TrainingData, Box<dyn std::error::Error>> {
-    let phones: Vec<Phone> = load_phones(ipa_path.as_ref())?;
-    let close_front_unrounded_vowel =
-        load_ffts(get_phone_by_name(&phones, "Close_front_unrounded_vowel")?)?;
-    let open_back_rounded_vowel =
-        load_ffts(get_phone_by_name(&phones, "Open_back_rounded_vowel")?)?;
-    Ok(TrainingData {
-        close_front_unrounded_vowel,
-        open_back_rounded_vowel,
-    })
+impl TrainingData {
+    pub fn input_output_pairs<'a>(&'a self) -> Vec<(&'a Fft, &'static Classification)> {
+        let mut ret = Vec::with_capacity(
+            self.close_front_unrounded_vowel.len() + self.open_back_rounded_vowel.len(),
+        );
+        for fft in &self.close_front_unrounded_vowel {
+            ret.push((
+                fft,
+                &Classification {
+                    close_front_unrounded_vowel: 1.0,
+                    open_back_rounded_vowel: 0.0,
+                },
+            ));
+        }
+        for fft in &self.open_back_rounded_vowel {
+            ret.push((
+                fft,
+                &Classification {
+                    close_front_unrounded_vowel: 0.0,
+                    open_back_rounded_vowel: 1.0,
+                },
+            ));
+        }
+        ret
+    }
+
+    /// ipa_path is a path to the directory containing sounds.json and the audio directory
+    pub fn load(ipa_path: impl AsRef<Path>) -> Result<Self, Box<dyn std::error::Error>> {
+        let phones: Vec<Phone> = load_phones(ipa_path.as_ref())?;
+        let close_front_unrounded_vowel =
+            load_ffts(get_phone_by_name(&phones, "Close_front_unrounded_vowel")?)?;
+        let open_back_rounded_vowel =
+            load_ffts(get_phone_by_name(&phones, "Open_back_rounded_vowel")?)?;
+        Ok(TrainingData {
+            close_front_unrounded_vowel,
+            open_back_rounded_vowel,
+        })
+    }
 }
 
 fn get_phone_by_name<'a>(
