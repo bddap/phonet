@@ -56,9 +56,7 @@ impl Model {
             )
             .unwrap();
 
-        // =========================
-        // Initialize the variables.
-        // =========================
+        // Initialize variables.
         let options = SessionOptions::new();
         let g = self.scope.graph();
         let session = Session::new(&options, &g).unwrap();
@@ -69,9 +67,7 @@ impl Model {
         }
         session.run(&mut run_args).unwrap();
 
-        // ================
         // Train the model.
-        // ================
         let training_samples = training_data.input_output_pairs();
 
         for i in 0..passes {
@@ -100,7 +96,7 @@ impl Model {
     }
 }
 
-// Helper for building a layer.
+// Helper for building a dense layer.
 //
 // `activation` is a function which takes a tensor and applies an activation
 // function such as tanh.
@@ -139,45 +135,4 @@ fn layer<O1: Into<Output>>(
             scope,
         ),
     )
-}
-
-/// Generate an untrained nn for use in phoneme classification.
-fn model(hidden_size: (u64, u64)) -> (Vec<Variable>, Scope, Operation, Output) {
-    let mut scope = Scope::new_root_scope();
-    let mut variables = Vec::new();
-    let (hidden_width, hidden_height) = hidden_size;
-
-    let input = ops::Placeholder::new()
-        .data_type(DataType::Float)
-        .shape(Shape::from(&[1u64, INPUT_HEIGHT][..]))
-        .build(&mut scope.with_op_name("input"))
-        .unwrap();
-
-    let mut latest_layer: Output = input.clone().into();
-    let mut latest_height = INPUT_HEIGHT;
-
-    // hidden layers
-    for _ in 0..hidden_width {
-        let (mut vars, next_layer) = layer(
-            latest_layer,
-            latest_height,
-            hidden_height,
-            &|x, scope| ops::tanh(x, scope).unwrap().into(),
-            &mut scope,
-        );
-        variables.append(&mut vars);
-        latest_layer = next_layer;
-        latest_height = hidden_height;
-    }
-
-    let (mut vars, output) = layer(
-        latest_layer,
-        hidden_height,
-        OUTPUT_HEIGHT,
-        &|x, _| x,
-        &mut scope,
-    );
-    variables.append(&mut vars);
-
-    (variables, scope, input, output)
 }
