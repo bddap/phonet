@@ -1,10 +1,9 @@
-use super::common::{FFT_BINS, INPUT_HEIGHT, OUTPUT_HEIGHT};
+use super::common::FFT_BINS;
 use super::fft::fft;
 use audrey::read::BufFileReader;
 use serde::{Deserialize, Serialize};
 use serde_big_array::big_array;
-use std::error::Error;
-use std::fs::File;
+use std::fs::{read_dir, DirEntry};
 use std::path::{Path, PathBuf};
 
 big_array! { BigArray; }
@@ -13,93 +12,68 @@ big_array! { BigArray; }
 #[derive(Clone, Serialize, Deserialize)]
 pub struct Fft(#[serde(with = "BigArray")] pub [f32; FFT_BINS]);
 
-/// Output
-#[derive(Clone, Copy, Serialize, Deserialize)]
-#[repr(usize)]
-pub enum Classification {
-    CloseFrontUnroundedVowel,
-    OpenBackRoundedVowel,
+pub struct TrainingData {
+    pub classes: Vec<PathBuf>,
+    pub training_pairs: Vec<TrainingOutput>,
 }
 
-pub struct TrainingData {
-    pub close_front_unrounded_vowel: Vec<Fft>, // "i"
-    pub open_back_rounded_vowel: Vec<Fft>,     // "ɒ"
+#[derive(Serialize, Deserialize)]
+pub struct TrainingOutput {
+    freqs: Fft,
+    class: usize,
 }
 
 impl TrainingData {
-    pub fn input_output_pairs<'a>(&'a self) -> Vec<(&'a Fft, Classification)> {
-        let mut ret = Vec::with_capacity(
-            self.close_front_unrounded_vowel.len() + self.open_back_rounded_vowel.len(),
-        );
-        for fft in &self.close_front_unrounded_vowel {
-            ret.push((fft, Classification::CloseFrontUnroundedVowel));
+    pub fn load(training_audio_path: impl AsRef<Path>) -> Result<Self, Box<dyn std::error::Error>> {
+        let classes: Result<Vec<DirEntry>, std::io::Error> =
+            read_dir(training_audio_path)?.collect();
+        let mut classes: Vec<PathBuf> = classes?.iter().map(|de| de.path()).collect();
+        classes.sort_by(|pba, pbb| {
+            let fna = pba.as_path().file_name().unwrap();
+            let sa = fna.to_str().unwrap().to_lowercase();
+            let fnb = pbb.as_path().file_name().unwrap();
+            let sb = fnb.to_str().unwrap().to_lowercase();
+            sa.cmp(&sb)
+        });
+        let mut training_pairs: Vec<TrainingOutput> = Vec::new();
+        for (class, path) in classes.iter().enumerate() {
+            for freqs in load_all_in_dir(path)? {
+                training_pairs.push(TrainingOutput { freqs, class });
+            }
         }
-        for fft in &self.open_back_rounded_vowel {
-            ret.push((fft, Classification::OpenBackRoundedVowel));
-        }
-        ret
-    }
-
-    /// ipa_path is a path to the directory containing sounds.json and the audio directory
-    pub fn load(ipa_path: impl AsRef<Path>) -> Result<Self, Box<dyn std::error::Error>> {
-        let phones: Vec<Phone> = load_phones(ipa_path.as_ref())?;
-        let close_front_unrounded_vowel =
-            load_ffts(get_phone_by_name(&phones, "Close_front_unrounded_vowel")?)?;
-        let open_back_rounded_vowel =
-            load_ffts(get_phone_by_name(&phones, "Open_back_rounded_vowel")?)?;
         Ok(TrainingData {
-            close_front_unrounded_vowel,
-            open_back_rounded_vowel,
+            classes,
+            training_pairs,
         })
     }
 }
 
-fn get_phone_by_name<'a>(
-    phones: &'a [Phone],
-    name: &str,
-) -> Result<&'a Phone, Box<dyn std::error::Error>> {
-    phones
-        .iter()
-        .filter(|phone| &phone.name == name)
-        .next()
-        .ok_or("Couldn't find phone".into())
-}
-
-/// metadata about a specific sound
-#[derive(Serialize, Deserialize)]
-struct Phone {
-    ipa_symbol: String,
-    name: String,
-    wav: PathBuf,
-    mp3: PathBuf,
-    ogg: PathBuf,
-}
-
-fn load_ffts(phone: &Phone) -> Result<Vec<Fft>, Box<dyn std::error::Error>> {
-    // do we resample before fft or after? Do we resample at all?
-    let audio_reader = BufFileReader::open(&phone.ogg)?;
-    let raw = load_raw_samples(audio_reader)?;
-    let ret: Vec<Fft> = raw
-        .windows(FFT_BINS)
-        .step_by(FFT_BINS / 2)
-        .map(|raw| {
-            let mut ret = Fft([0.0; FFT_BINS]);
-            fft(raw, &mut ret.0);
-            ret
-        })
-        .collect();
+fn load_all_in_dir(
+    audio_sample_dir: impl AsRef<Path>,
+) -> Result<Vec<Fft>, Box<dyn std::error::Error>> {
+    let mut ret = Vec::new();
+    for audio_file in read_dir(audio_sample_dir)? {
+        let audio_file = audio_file?.path();
+        load_ffts(audio_file, &mut ret)?;
+    }
     Ok(ret)
 }
 
-fn load_phones(ipa_path: &Path) -> Result<Vec<Phone>, Box<dyn std::error::Error>> {
-    let file = File::open(ipa_path.join("sounds.json"))?;
-    let mut phones: Vec<Phone> = serde_json::from_reader(file)?;
-    for mut phone in &mut phones {
-        phone.wav = ipa_path.join(&phone.wav);
-        phone.mp3 = ipa_path.join(&phone.mp3);
-        phone.ogg = ipa_path.join(&phone.ogg);
+fn load_ffts(
+    audio_sample_path: impl AsRef<Path>,
+    out: &mut Vec<Fft>,
+) -> Result<(), Box<dyn std::error::Error>> {
+    // do we resample before fft or after? Do we resample at all?
+    let audio_reader = BufFileReader::open(&audio_sample_path)?;
+    let raw = load_raw_samples(audio_reader)?;
+    for fft in raw.windows(FFT_BINS).step_by(1).map(|raw| {
+        let mut ret = Fft([0.0; FFT_BINS]);
+        fft(raw, &mut ret.0);
+        ret
+    }) {
+        out.push(fft)
     }
-    Ok(phones)
+    Ok(())
 }
 
 fn load_raw_samples(mut reader: BufFileReader) -> Result<Vec<f32>, Box<dyn std::error::Error>> {
