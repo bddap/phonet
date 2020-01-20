@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
 
 import tensorflow as tf
-import json, gzip
+import numpy as np
+import gzip
+import json
 from os import path
-from create_model import FFT_BINS, HIDDEN_HEIGHT, MODEL_PATH, CHECKPOINT_PATH
-from create_model import CHECKPOINT_DIR, num_classes
+from create_model import MODEL_PATH, CHECKPOINT_PATH, CHECKPOINT_DIR
+
 
 def load_model():
     if not path.exists(CHECKPOINT_DIR):
-        print("The directory", CHECKPOINT_DIR, "does not exist. Run ./create_model.py to create it.")
+        print("The directory", CHECKPOINT_DIR,
+              "does not exist. Run ./create_model.py to create it.")
         exit(1)
     if not path.exists(MODEL_PATH):
-        print("The file", MODEL_PATH, "does not exist. Run ./create_model.py to create it.")
+        print("The file", MODEL_PATH,
+              "does not exist. Run ./create_model.py to create it.")
         exit(1)
 
     model = tf.keras.models.load_model(MODEL_PATH)
@@ -19,22 +23,25 @@ def load_model():
     model.load_weights(latest)
     return model
 
+
 def load_training_data():
     with gzip.GzipFile("traindat.json.gz") as fd:
         training_data = json.load(fd)
-    xs = [t["freqs"] for t in training_data]
-    ys = [t["class"] for t in training_data]
+    xs = np.array([d[0] for d in training_data], dtype=np.float32)
+    ys = np.array([d[1] for d in training_data], dtype=np.float32)
     return (xs, ys)
+
 
 def train(model, xs, ys):
     # load latest training checkpoint if any
     cp_callback = tf.keras.callbacks.ModelCheckpoint(
-        filepath = CHECKPOINT_PATH,
-        verbose = 1, 
-        save_weights_only = True,
-        save_freq = len(xs) * 10,
+        filepath=CHECKPOINT_PATH,
+        verbose=1,
+        save_weights_only=True,
+        save_freq=len(xs),
     )
     model.fit(xs, ys, callbacks=[cp_callback], epochs=5000)
+
 
 if __name__ == "__main__":
     print("loading model")

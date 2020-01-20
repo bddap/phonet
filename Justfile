@@ -2,7 +2,7 @@
 prepare:
 	#!/bin/bash
 	cd prepare_training_data
-	cargo run --release | pigzip > ../traindat.json.gz
+	cargo run --release | pigz > ../traindat.json.gz
 
 create:
 	#!/bin/bash
