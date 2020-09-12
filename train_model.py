@@ -5,7 +5,10 @@ import numpy as np
 import gzip
 import json
 from os import path
-from create_model import MODEL_PATH, CHECKPOINT_PATH, CHECKPOINT_DIR
+from create_model import (
+    MODEL_PATH, CHECKPOINT_PATH, CHECKPOINT_DIR,
+    AUDIO_SLICE_SIZE, KERNEL_SIZE
+)
 
 
 def load_model():
@@ -24,12 +27,30 @@ def load_model():
     return model
 
 
+def slice(xs):
+    # slice into AUDIO_SLICE_SIZE length pieces, with KERNEL_SIZE overlap
+    # this may end up cutting of the ends of training samples
+    assert len(xs) >= AUDIO_SLICE_SIZE
+
+    def e():
+        for i in range(0, len(xs), AUDIO_SLICE_SIZE - KERNEL_SIZE):
+            yield xs[i:i+AUDIO_SLICE_SIZE]
+    return list(e())
+
+
 def load_training_data():
     with gzip.GzipFile("traindat.json.gz") as fd:
         training_data = json.load(fd)
-    xs = np.array([d[0] for d in training_data], dtype=np.float32)
-    ys = np.array([d[1] for d in training_data], dtype=np.float32)
-    return (xs, ys)
+
+    rxs = []
+    rys = []
+
+    for xs, ys in training_data:
+        sxs = slice(xs)
+        rxs += sxs
+        rys += [ys for ys in range(len(sxs))]
+
+    return (rxs, rys)
 
 
 def train(model, xs, ys):

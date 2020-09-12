@@ -1,6 +1,4 @@
 mod audio;
-mod common;
-mod fft;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
 	let training_data = audio::TrainingData::load("../training_audio")?;

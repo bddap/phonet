@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import tensorflow as tf
-import json, sys
+import json
+import sys
 from train_model import load_model
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -9,12 +10,13 @@ import time
 import threading
 import random
 
+
 def accept_input():
     global ys
     model = load_model()
     while True:
         ys = json.loads(next(sys.stdin))
-        
+
 
 ys = [
     0.016049889125306832,
@@ -49,15 +51,15 @@ ys = [
 
 if __name__ == "__main__":
 
-    threading.Thread(target = accept_input).start()
-    
+    threading.Thread(target=accept_input).start()
+
     fig = plt.figure()
-    ax1 = fig.add_subplot(1,1,1)
-    
+    ax1 = fig.add_subplot(1, 1, 1)
+
     def animate(_i):
         global ys
         xs = list(range(len(ys)))
-        
+
         ax1.clear()
         ax1.plot(xs, ys)
 
