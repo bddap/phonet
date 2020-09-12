@@ -1,17 +1,30 @@
-from tensorflow import keras
+import tensorflow as tf
 from tensorflow.keras import Sequential
 from scipy.io import wavfile
 import numpy as np
 import sys
+import percache
+import os
+
+keras = tf.keras
+
+# loading and fft is expensive and single-threaded so we memoize results
+cache = percache.Cache("fftcache", livesync=True)
+
+INPUT_SIZE = 2400  # length of time domain inputs
+INPUT_STEP = 99  # length of time domain inputs
 
 
 def create_model():
-    FFT_BINS = 480000  # 256
-    HIDDEN_HEIGHT = 256
+    FFT_BINS = INPUT_SIZE // 2 + 1
+    HIDDEN_HEIGHT = INPUT_SIZE * 2
     HIDDEN_WIDTH = 16
     classes = 5
     model = Sequential(
-        [keras.layers.Dense(256, activation='relu', input_shape=(FFT_BINS,))] +
+        [keras.layers.Dense(
+            HIDDEN_HEIGHT,
+            activation='relu',
+            input_shape=(FFT_BINS,))] +
         [keras.layers.Dense(HIDDEN_HEIGHT, activation='relu')
          for _ in range(HIDDEN_WIDTH)] +
         [keras.layers.Dense(classes, activation='softmax')]
@@ -22,38 +35,54 @@ def create_model():
 
 
 def load_training_data():
-    ret = []
-    for f in [
-        "traindat/a.wav",
-        "traindat/e.wav",
-        "traindat/i.wav",
-        "traindat/o.wav",
-        "traindat/u.wav",
-    ]:
-        samplerate, data = wavfile.read(f)
-        # TODO: do fft
-        ret.append(data)
-    return ret
+    tags = {
+        "a": [1, 0, 0, 0, 0],
+        "e": [0, 1, 0, 0, 0],
+        "i": [0, 0, 1, 0, 0],
+        "o": [0, 0, 0, 1, 0],
+        "u": [0, 0, 0, 0, 1],
+    }
+    xs, ys = [], []
+    for fn in os.listdir("traindat"):
+        for spectrum in load_spectra("traindat/" + fn, INPUT_SIZE, INPUT_STEP):
+            xs.append(spectrum)
+            ys.append(np.array(tags[fn[0]]))
+    return np.array(xs), np.array(ys)
 
 
 def train(model, training_data):
-    xs = np.array(training_data)
-    ys = np.array([
-        np.array([1, 0, 0, 0, 0]),
-        np.array([0, 1, 0, 0, 0]),
-        np.array([0, 0, 1, 0, 0]),
-        np.array([0, 0, 0, 1, 0]),
-        np.array([0, 0, 0, 0, 1]),
-    ])
-    model.fit(xs, ys, epochs=5000)
+    weight_file = 'weights'
+    try:
+        model.load_weights(weight_file)
+    except tf.errors.NotFoundError:
+        pass
+    xs, ys = training_data
+    model.fit(xs, ys, epochs=1)
+    model.save_weights(weight_file)
 
 
 def classify(model, wav):
     return model.predict(np.array([wav]))[0]
 
 
+def rfftr(reals):
+    "fft, real to real becuse we dont care about phase"
+    # cached because it's expesive
+    return np.array([n.real for n in np.fft.rfft(reals)])
+
+
+@cache
+def load_spectra(filename, input_size, input_step):
+    ret = []
+    samplerate, data = wavfile.read(filename)
+    for i in range(0, len(data) - input_size, input_step):
+        ret.append(rfftr(np.array(data[i:i+input_size])))
+    return np.array(ret)
+
+
 model = create_model()
 training_data = load_training_data()
 train(model, training_data)
-_, wav = wavfile.read(sys.argv[1])
-print(classify(model, wav))
+spec = load_spectra(sys.argv[1], INPUT_SIZE, INPUT_STEP)
+print(sum(model.predict(spec)))
+print("done")

@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 tensorflow = "*"
 scipy = "*"
+percache = "*"
 
 [requires]
 python_version = "3.7"
