@@ -25,4 +25,4 @@ reject:
 	rm traindat_staging/*
 
 go:
-	pipenv run python ./go.py testdat/a_4525.wav
+	pipenv run python ./go.py

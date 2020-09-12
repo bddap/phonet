@@ -13,6 +13,7 @@ cache = percache.Cache("fftcache", livesync=True)
 
 INPUT_SIZE = 2400  # length of time domain inputs
 INPUT_STEP = 99  # length of time domain inputs
+WEIGHT_FILE = 'weights'
 
 
 def create_model():
@@ -51,14 +52,15 @@ def load_training_data():
 
 
 def train(model, training_data):
-    weight_file = 'weights'
-    try:
-        model.load_weights(weight_file)
-    except tf.errors.NotFoundError:
-        pass
     xs, ys = training_data
     model.fit(xs, ys, epochs=1)
-    model.save_weights(weight_file)
+
+
+def try_load_weights(model):
+    try:
+        model.load_weights(WEIGHT_FILE)
+    except tf.errors.NotFoundError:
+        pass
 
 
 def classify(model, wav):
@@ -82,7 +84,10 @@ def load_spectra(filename, input_size, input_step):
 
 model = create_model()
 training_data = load_training_data()
-train(model, training_data)
-spec = load_spectra(sys.argv[1], INPUT_SIZE, INPUT_STEP)
-print(sum(model.predict(spec)))
-print("done")
+try_load_weights(model)
+for _ in range(1000):
+    train(model, training_data)
+    model.save_weights(WEIGHT_FILE)
+    for testfile in sorted(os.listdir('testdat')):
+        spec = load_spectra('testdat/' + testfile, INPUT_SIZE, INPUT_STEP)
+        print(testfile, sum(model.predict(spec)).astype(int))
