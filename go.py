@@ -69,7 +69,6 @@ def classify(model, wav):
 
 def rfftr(reals):
     "fft, real to real becuse we dont care about phase"
-    # cached because it's expesive
     return np.array([n.real for n in np.fft.rfft(reals)])
 
 
@@ -86,8 +85,8 @@ model = create_model()
 training_data = load_training_data()
 try_load_weights(model)
 for _ in range(1000):
-    train(model, training_data)
-    model.save_weights(WEIGHT_FILE)
     for testfile in sorted(os.listdir('testdat')):
         spec = load_spectra('testdat/' + testfile, INPUT_SIZE, INPUT_STEP)
         print(testfile, sum(model.predict(spec)).astype(int))
+    train(model, training_data)
+    model.save_weights(WEIGHT_FILE)
