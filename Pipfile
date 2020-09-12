@@ -7,7 +7,8 @@ verify_ssl = true
 
 [packages]
 tensorflow = "*"
-matplotlib = "*"
+scipy = "*"
+percache = "*"
 
 [requires]
 python_version = "3.7"

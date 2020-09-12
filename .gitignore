@@ -5,3 +5,8 @@ traindat.json.gz
 model.h5
 training_checkpoints
 tmp
+cache
+fftcache
+traindat_staging
+checkpoint
+weights.*
